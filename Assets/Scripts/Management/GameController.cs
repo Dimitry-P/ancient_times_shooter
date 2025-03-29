@@ -1,11 +1,20 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    private static GameController instance;
+    public static GameController instance;
+    
+
     private SceneController sceneController;
+
     public SettingsDTO SettingsDTO;
+    private SettingsData _settingsData;
+    public SettingsData SettingsData { get { return _settingsData; } set{ _settingsData = value; } }
+
+
+    public SettingsManager settingsManager;
 
     private void Awake()
     {
@@ -14,6 +23,7 @@ public class GameController : MonoBehaviour
             instance = this;
             Object.DontDestroyOnLoad(this.gameObject);
             sceneController = new SceneController();
+
         }
         else 
         {

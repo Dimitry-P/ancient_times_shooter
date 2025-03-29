@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
-public class SettingsLogic : MonoBehaviour
+public class SettingsController : MonoBehaviour
 {
     [SerializeField] private Button applaySettingsBttn;
     [SerializeField] private GameObject Panel_SettingsHeader;
@@ -13,8 +13,13 @@ public class SettingsLogic : MonoBehaviour
     List<UnityEngine.UI.ScrollRect> scrollViewsInSettings;
     List<Button> bttnsInSettingsHeaderPanel;
 
+    SettingsData settingsData;
+    [SerializeField] private SettingsManager settingsManager;
+
     void Start()
     {
+        settingsData = new SettingsData();
+
         scrollViewsInSettings = new List<ScrollRect>();
         foreach (Transform item in transform)
         {
@@ -32,15 +37,16 @@ public class SettingsLogic : MonoBehaviour
             if (buttonInSettings != null)
             {
                 string buttonText = buttonInSettings.GetComponentInChildren<TMP_Text>().text;
-                buttonInSettings.onClick.AddListener(() => OnButtonClick(buttonText));
+                buttonInSettings.onClick.AddListener(() => ChangeSettingsCategory(buttonText));
                 bttnsInSettingsHeaderPanel.Add(buttonInSettings);
             }
         }
 
+        applaySettingsBttn.gameObject.SetActive(false);
         applaySettingsBttn.onClick.AddListener(() => { Debug.Log($"нажата {applaySettingsBttn.name}"); });
     }
 
-    private void OnButtonClick(string buttonText)
+    private void ChangeSettingsCategory(string buttonText)
     {
         foreach (ScrollRect scrollView in scrollViewsInSettings)
         {
@@ -53,5 +59,18 @@ public class SettingsLogic : MonoBehaviour
                 scrollView.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void OnSettingsChanged()
+    {
+        applaySettingsBttn.gameObject.SetActive(true); // Показываем кнопку при изменении настроек
+    }
+
+    public void OnApplyButtonClicked()
+    {
+        // Здесь вы можете сохранить настройки и скрыть кнопку
+        applaySettingsBttn.gameObject.SetActive(false);
+        Debug.Log("Apply");
+        // Сохранение настроек в GameController или другом классе
     }
 }
