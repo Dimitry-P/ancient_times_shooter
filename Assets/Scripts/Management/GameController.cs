@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance;
     private SceneController sceneController;
+    public SettingsDTO SettingsDTO;
 
     private void Awake()
     {
