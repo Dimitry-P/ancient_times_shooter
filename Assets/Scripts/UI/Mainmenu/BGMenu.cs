@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class BGMenu : MonoBehaviour
 {
-    string horMouseDirection = "Horizontal";
-    string vertMouseDirection = "Vertical";
     [SerializeField] float speed = 0.5f;
     private Vector3 lastMousePosition;
 
@@ -33,11 +31,6 @@ public class BGMenu : MonoBehaviour
         // Получаем размеры экрана
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
-
-        // Устанавливаем позицию курсора в центр экрана
-        //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Сбрасываем курсор, если он был установлен
-        //Cursor.lockState = CursorLockMode.Locked; // Блокируем курсор в центре экрана
-        //Cursor.visible = false; // Скрываем курсор (по желанию)
 
         // Устанавливаем курсор в центр экрана
         Mouse.current.WarpCursorPosition(new Vector2(screenWidth / 2, screenHeight / 2));
