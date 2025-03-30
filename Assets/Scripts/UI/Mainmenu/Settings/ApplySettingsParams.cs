@@ -1,6 +1,12 @@
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// скрипт дл€ кнопки Apply в Settings
+/// </summary>
 public class ApplySettingsParams : MonoBehaviour
 {
     Button applaySettingsBttn;
@@ -14,16 +20,34 @@ public class ApplySettingsParams : MonoBehaviour
     }
 
 
-    private void ApplyChangedSettings()
+    private async void ApplyChangedSettings()
     {
         applaySettingsBttn.gameObject.SetActive(false);
 
-        //Debug.Log($"{ GameController.instance.settingsManager.VideoDTO.quality.ToString()}");
-        //добавить логику записи параметров в класс дл€ хранени€ Settings
+
+        //добавить логику записи параметров в класс дл€ хранени€ Settings, но пока используетс€ метод SaveGame()
+
+        await SaveGame();
     }
 
-    //private void OnDisable()
-    //{
-    //    Debug.Log("changes");
-    //}
+    private async Task SaveGame()
+    {
+        SaveDTO saveDTO = new SaveDTO();
+        saveDTO.playerDTO = new PlayerDTO();
+        saveDTO.settingsDTO = new SettingsDTO();
+        saveDTO.settingsDTO.video = settingsManager.VideoDTO;
+        saveDTO.settingsDTO.control = settingsManager.ControlDTO;
+        Debug.Log($"saveDto {saveDTO.playerDTO.PlayerName}");
+
+        // —ериализаци€ в файл
+        string json = JsonUtility.ToJson(saveDTO); // true дл€ форматировани€
+        Debug.Log(json);
+
+        string filePath = Application.persistentDataPath + "\\Saves\\Save.json";
+        using (FileStream fs = new FileStream(filePath, FileMode.Create))
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes(json);
+            await fs.WriteAsync(buffer, 0, buffer.Length);
+        }
+    }
 }

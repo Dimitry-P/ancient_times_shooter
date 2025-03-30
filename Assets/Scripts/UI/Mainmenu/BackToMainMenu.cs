@@ -16,6 +16,13 @@ public class BackToMainMenu : MonoBehaviour
     void GoToMainMenuMethod()
     {
         currentOpenedPanel.SetActive(false);
+        foreach (Transform children in currentOpenedPanel.transform) 
+        {
+            if (children.GetComponent<ScrollRect>() != null)
+            {
+                children.gameObject.SetActive(false);
+            }
+        }
         mainMenuPanel.SetActive(true);
     }
 }

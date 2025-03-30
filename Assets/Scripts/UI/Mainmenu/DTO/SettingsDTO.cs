@@ -1,7 +1,8 @@
-using UnityEngine;
+using System;
 
+[Serializable]
 public class SettingsDTO
 {
-    ControlDTO control;
-    VideoDTO video;
+    public ControlDTO control;
+    public VideoDTO video;
 }

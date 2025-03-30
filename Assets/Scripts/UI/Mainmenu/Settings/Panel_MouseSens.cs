@@ -4,10 +4,17 @@ using UnityEngine.UI;
 using Slider = UnityEngine.UI.Slider;
 
 
-public class MouseSens : MonoBehaviour
+public class Panel_MouseSens : MonoBehaviour, ISettingsObserver
 {
     [SerializeField] private TMP_Text mouseSensTMP;
     [SerializeField] private Slider mouseSensSlider;
+
+    [SerializeField] private SettingsController settingsController;
+
+    public void OnSettingsChanged()
+    {
+        settingsController.applaySettingsBttn.gameObject.SetActive(true); // Показываем кнопку при изменении настроек
+    }
 
     void Start()
     {
@@ -23,5 +30,18 @@ public class MouseSens : MonoBehaviour
         // Округляем значение до одного знака после запятой
         float roundedValue = Mathf.Round(value * 10f) / 10f;
         mouseSensTMP.text = roundedValue.ToString("F1"); // Форматируем текст с одним знаком после запятой
+
+        
+        GameController.instance.settingsManager.ControlDTO = new ControlDTO();
+        GameController.instance.settingsManager.ControlDTO.mouseSens = 0;
+        if (GameController.instance.settingsManager.ControlDTO.mouseSens != roundedValue)
+        {
+            //settingsController.applaySettingsBttn.Set
+            GameController.instance.settingsManager.ControlDTO.mouseSens = roundedValue;
+
+            OnSettingsChanged();
+        }
     }
+
+
 }
