@@ -7,19 +7,16 @@ using Button = UnityEngine.UI.Button;
 
 public class SettingsController : MonoBehaviour
 {
-    [SerializeField] private Button applaySettingsBttn;
+    [SerializeField] public Button applaySettingsBttn;
     [SerializeField] private GameObject Panel_SettingsHeader;
     
     List<UnityEngine.UI.ScrollRect> scrollViewsInSettings;
     List<Button> bttnsInSettingsHeaderPanel;
 
-    SettingsData settingsData;
     [SerializeField] private SettingsManager settingsManager;
 
     void Start()
     {
-        settingsData = new SettingsData();
-
         scrollViewsInSettings = new List<ScrollRect>();
         foreach (Transform item in transform)
         {
@@ -43,7 +40,7 @@ public class SettingsController : MonoBehaviour
         }
 
         applaySettingsBttn.gameObject.SetActive(false);
-        applaySettingsBttn.onClick.AddListener(() => { Debug.Log($"нажата {applaySettingsBttn.name}"); });
+        //applaySettingsBttn.onClick.AddListener(OnApplyButtonClicked);
     }
 
     private void ChangeSettingsCategory(string buttonText)
@@ -61,16 +58,4 @@ public class SettingsController : MonoBehaviour
         }
     }
 
-    public void OnSettingsChanged()
-    {
-        applaySettingsBttn.gameObject.SetActive(true); // Показываем кнопку при изменении настроек
-    }
-
-    public void OnApplyButtonClicked()
-    {
-        // Здесь вы можете сохранить настройки и скрыть кнопку
-        applaySettingsBttn.gameObject.SetActive(false);
-        Debug.Log("Apply");
-        // Сохранение настроек в GameController или другом классе
-    }
 }

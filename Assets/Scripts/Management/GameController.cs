@@ -9,11 +9,6 @@ public class GameController : MonoBehaviour
 
     private SceneController sceneController;
 
-    public SettingsDTO SettingsDTO;
-    private SettingsData _settingsData;
-    public SettingsData SettingsData { get { return _settingsData; } set{ _settingsData = value; } }
-
-
     public SettingsManager settingsManager;
 
     private void Awake()
