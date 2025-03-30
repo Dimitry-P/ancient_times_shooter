@@ -3,22 +3,27 @@ using UnityEngine.UI;
 
 public class ApplySettingsParams : MonoBehaviour
 {
-    Button apply;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Button applaySettingsBttn;
+
+    [SerializeField] private SettingsManager settingsManager;
+
     void Start()
     {
-        apply = GetComponent<Button>();
-        apply.onClick.AddListener(ApplyChangedSettings);
+        applaySettingsBttn = GetComponent<Button>();
+        applaySettingsBttn.onClick.AddListener(ApplyChangedSettings);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void ApplyChangedSettings()
     {
+        applaySettingsBttn.gameObject.SetActive(false);
 
+        //Debug.Log($"{ GameController.instance.settingsManager.VideoDTO.quality.ToString()}");
+        //добавить логику записи параметров в класс для хранения Settings
     }
+
+    //private void OnDisable()
+    //{
+    //    Debug.Log("changes");
+    //}
 }

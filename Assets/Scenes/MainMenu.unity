@@ -1837,6 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca11b3dea31e0534e9522a0867f56245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsManager: {fileID: 0}
 --- !u!1 &495219060
 GameObject:
   m_ObjectHideFlags: 0
@@ -10670,6 +10671,7 @@ MonoBehaviour:
   higherBttn: {fileID: 166424051}
   textQuality: {fileID: 1442353398}
   currentVideoQuality: 0
+  settingsController: {fileID: 815969923}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

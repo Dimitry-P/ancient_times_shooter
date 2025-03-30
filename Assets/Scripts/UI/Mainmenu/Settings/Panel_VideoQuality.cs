@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Panel_VideoQuality : MonoBehaviour
+public class Panel_VideoQuality : MonoBehaviour, ISettingsObserver
 {
     [SerializeField] private Button lowerBttn;
     [SerializeField] private Button higherBttn;
@@ -12,10 +12,10 @@ public class Panel_VideoQuality : MonoBehaviour
     private sbyte videoQualitiesIndex = 0;
     [HideInInspector] public VideoQuality currentVideoQuality;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private SettingsController settingsController;
+
     void Start()
     {
-        //textQuality.text = videoQualities[videoQualitiesIndex];
         textQuality.text = VideoQuality.Low.ToString();
         lowerBttn.onClick.AddListener(()=>ChangeVideoQuality(-1));
         higherBttn.onClick.AddListener(()=>ChangeVideoQuality(1));
@@ -36,9 +36,20 @@ public class Panel_VideoQuality : MonoBehaviour
         textQuality.text = videoQualities[videoQualitiesIndex].ToString();
         currentVideoQuality = videoQualities[videoQualitiesIndex];
 
-        //if (GameController.instance.SettingsData.video.quality != currentVideoQuality)
-        //{
-        //    Debug.Log("changes");
-        //}
+        GameController.instance.settingsManager.VideoDTO  = new VideoDTO();
+        GameController.instance.settingsManager.VideoDTO.quality = VideoQuality.Low; // изменить когда по€витс€ сохранение и загрузка
+
+        if (GameController.instance.settingsManager.VideoDTO.quality != currentVideoQuality)
+        {
+
+            GameController.instance.settingsManager.VideoDTO.quality = currentVideoQuality;
+
+            OnSettingsChanged();
+        }
+    }
+
+    public void OnSettingsChanged()
+    {
+        settingsController.applaySettingsBttn.gameObject.SetActive(true); // ѕоказываем кнопку при изменении настроек
     }
 }
