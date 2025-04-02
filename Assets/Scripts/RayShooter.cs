@@ -11,6 +11,7 @@ public class RayShooter : MonoBehaviour
         Cursor.visible = false;
     }
 
+
     void OnGUI()
     {
         int size = 12;
@@ -18,9 +19,6 @@ public class RayShooter : MonoBehaviour
         float posY = _camera.pixelHeight / 2 - size / 2;
         GUI.Label(new Rect(posX, posY, size, size), "*");
     }
-
-
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
