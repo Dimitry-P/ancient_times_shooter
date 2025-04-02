@@ -4,6 +4,8 @@ using System.Collections;
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
+
+    [SerializeField] private Fireball _fireBall;
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -23,6 +25,12 @@ public class RayShooter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //создание огненного шара
+            // Получаем позицию камеры и добавляем смещение по оси Z
+            Vector3 fbPos = _camera.transform.position + _camera.transform.forward * 3;
+            Instantiate<Fireball>(_fireBall, fbPos, _camera.transform.rotation);
+            
+
             Vector3 point = new Vector3(
               _camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
             Ray ray = _camera.ScreenPointToRay(point);
@@ -37,7 +45,7 @@ public class RayShooter : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(SphereIndicator(hit.point));
+                    //StartCoroutine(SphereIndicator(hit.point));
                 }
             }
         }
