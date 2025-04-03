@@ -4,6 +4,8 @@ using System.Collections;
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
+    private float interactableRayDistance = 3.0f;
+    [SerializeField] private GameObject _crossHairPanel;
 
     [SerializeField] private Fireball _fireBall;
     void Start()
@@ -23,18 +25,17 @@ public class RayShooter : MonoBehaviour
     }
     void Update()
     {
+        Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
+        Ray ray = _camera.ScreenPointToRay(point);
+        RaycastHit hit;
+
         if (Input.GetMouseButtonDown(0))
         {
             //создание огненного шара
             // Получаем позицию камеры и добавляем смещение по оси Z
             Vector3 fbPos = _camera.transform.position + _camera.transform.forward * 3;
             Instantiate<Fireball>(_fireBall, fbPos, _camera.transform.rotation);
-            
 
-            Vector3 point = new Vector3(
-              _camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
-            Ray ray = _camera.ScreenPointToRay(point);
-            RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject hitObject = hit.transform.gameObject;
@@ -48,6 +49,18 @@ public class RayShooter : MonoBehaviour
                     //StartCoroutine(SphereIndicator(hit.point));
                 }
             }
+        }
+        if (Physics.Raycast(ray, out hit, interactableRayDistance))
+        {
+            IInteractable interactable = hit.transform.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                _crossHairPanel.SetActive(true);
+            }
+        }
+        else 
+        {
+            _crossHairPanel.SetActive(false);
         }
     }
     private IEnumerator SphereIndicator(Vector3 pos)

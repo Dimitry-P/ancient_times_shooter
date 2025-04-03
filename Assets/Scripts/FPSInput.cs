@@ -10,6 +10,7 @@ public class FPSInput : MonoBehaviour
     private CharacterController _charController;
     public float speed = 6.0f;
     public float gravity = -9.8f;
+    public float sensitivityHor = 4.0f;
     void Start()
     {
         _charController = GetComponent<CharacterController>();
@@ -19,6 +20,8 @@ public class FPSInput : MonoBehaviour
     
     void Update()
     {
+        transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
+
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
