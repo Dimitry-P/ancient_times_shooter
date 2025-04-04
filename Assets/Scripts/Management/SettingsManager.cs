@@ -10,8 +10,10 @@ public class SettingsManager : MonoBehaviour
     private ControlDTO _controlSettings;
     public ControlDTO ControlDTO { get { return _controlSettings; } set { _controlSettings = value; NotifyObservers(); } }
 
+
     private VideoDTO _videoSettings;
     public VideoDTO VideoDTO { get { return _videoSettings; } set { _videoSettings = value; NotifyObservers(); } }
+
 
     private List<ISettingsObserver> observers = new List<ISettingsObserver>();
 
