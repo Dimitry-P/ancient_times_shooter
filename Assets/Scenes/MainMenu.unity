@@ -2991,7 +2991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca11b3dea31e0534e9522a0867f56245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsManager: {fileID: 1414233803}
+  settingsManager: {fileID: 0}
 --- !u!1 &481868870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,6 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f5729611a3e9e4a9fe55f6ae2ea886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 1554040356}
   settingsManager: {fileID: 1414233803}
 --- !u!4 &699588927
 Transform:
@@ -5604,7 +5605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applaySettingsBttn: {fileID: 478691619}
   Panel_SettingsHeader: {fileID: 815181176}
-  settingsManager: {fileID: 1414233803}
+  settingsManager: {fileID: 0}
 --- !u!1 &817465715
 GameObject:
   m_ObjectHideFlags: 0
@@ -12195,7 +12196,6 @@ GameObject:
   - component: {fileID: 1554040358}
   - component: {fileID: 1554040357}
   - component: {fileID: 1554040356}
-  - component: {fileID: 1554040359}
   m_Layer: 5
   m_Name: StartBttn
   m_TagString: Untagged
@@ -12268,9 +12268,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 699588925}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: LoadGameScene
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12317,18 +12317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554040354}
   m_CullTransparentMesh: 1
---- !u!114 &1554040359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554040354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 025505e29f6864a4ab84785f2801f510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1555304767
 GameObject:
   m_ObjectHideFlags: 0

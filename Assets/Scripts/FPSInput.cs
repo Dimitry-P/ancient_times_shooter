@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.IO;
 
 [RequireComponent(typeof(CharacterController))]
 [AddComponentMenu("Control Script/FPS Input")]
@@ -14,10 +15,33 @@ public class FPSInput : MonoBehaviour
     void Start()
     {
         _charController = GetComponent<CharacterController>();
+    
+        string path = Path.Combine(Application.persistentDataPath, "settings.json");
+
+        // Если файл существует – загружаем настройки
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            GameSettings settings = JsonUtility.FromJson<GameSettings>(json);
+
+            // Применяем настройки
+            //Screen.fullScreen = settings.fullscreen;
+            AudioListener.volume = settings.volume;
+
+            Debug.Log("Настройки загружены: fullscreen=" + settings.fullscreen + ", volume=" + settings.volume);
+        }
+        else
+        {
+            Debug.LogWarning("Файл настроек не найден! Используются стандартные значения.");
+        }
+        Debug.Log("Файл настроек найден: " + File.Exists(path));
+        Debug.Log("Содержимое файла: " + File.ReadAllText(path));
     }
 
 
-    
+
+
+
     void Update()
     {
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
