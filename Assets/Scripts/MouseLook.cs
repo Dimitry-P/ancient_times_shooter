@@ -20,6 +20,7 @@ public class MouseLook : MonoBehaviour
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
         body.freezeRotation = true;
+        sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
     }
 
     void Update()
