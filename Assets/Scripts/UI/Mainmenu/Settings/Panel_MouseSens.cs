@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Slider = UnityEngine.UI.Slider;
 
 
-public class Panel_MouseSens : MonoBehaviour, ISettingsObserver
+public class Panel_MouseSens : MonoBehaviour, ISettingsManagerObserver
 {
     [SerializeField] private TMP_Text mouseSensTMP;
     [SerializeField] private Slider mouseSensSlider;

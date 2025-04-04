@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ISettingsObserver
+public interface ISettingsManagerObserver
 {
     void OnSettingsChanged();
 }
@@ -15,14 +15,14 @@ public class SettingsManager : MonoBehaviour
     public VideoDTO VideoDTO { get { return _videoSettings; } set { _videoSettings = value; NotifyObservers(); } }
 
 
-    private List<ISettingsObserver> observers = new List<ISettingsObserver>();
+    private List<ISettingsManagerObserver> observers = new List<ISettingsManagerObserver>();
 
-    public void RegisterObserver(ISettingsObserver observer)
+    public void RegisterObserver(ISettingsManagerObserver observer)
     {
         observers.Add(observer);
     }
 
-    public void UnregisterObserver(ISettingsObserver observer)
+    public void UnregisterObserver(ISettingsManagerObserver observer)
     {
         observers.Remove(observer);
     }

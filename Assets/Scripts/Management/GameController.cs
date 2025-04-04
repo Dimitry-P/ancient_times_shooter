@@ -6,7 +6,19 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private Button startButton; // Кнопка старта
     public static GameController instance;
+
     public SettingsManager settingsManager;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -15,15 +27,8 @@ public class GameController : MonoBehaviour
    
         Screen.fullScreen = true;
         Screen.SetResolution(1920, 1080, true);
+    }
     
-
-}
-
-
-
-   
-
-
     void OnStartButtonClicked()
     {
         // Переключаем в полноэкранный режим
@@ -33,7 +38,4 @@ public class GameController : MonoBehaviour
         // Загружаем игровую сцену
         SceneManager.LoadScene("GameScene"); // Замените на имя вашей игровой сцены
     }
-
-   
-
 }

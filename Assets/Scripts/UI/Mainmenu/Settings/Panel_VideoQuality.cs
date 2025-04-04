@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Panel_VideoQuality : MonoBehaviour, ISettingsObserver
+public class Panel_VideoQuality : MonoBehaviour, ISettingsManagerObserver
 {
     [SerializeField] private Button lowerBttn;
     [SerializeField] private Button higherBttn;
@@ -13,6 +13,7 @@ public class Panel_VideoQuality : MonoBehaviour, ISettingsObserver
     [HideInInspector] public VideoQuality currentVideoQuality;
 
     [SerializeField] private SettingsController settingsController;
+
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class Panel_VideoQuality : MonoBehaviour, ISettingsObserver
         textQuality.text = videoQualities[videoQualitiesIndex].ToString();
         currentVideoQuality = videoQualities[videoQualitiesIndex];
 
-        GameController.instance.settingsManager.VideoDTO  = new VideoDTO();
+        GameController.instance.settingsManager.VideoDTO = new VideoDTO();
         GameController.instance.settingsManager.VideoDTO.quality = VideoQuality.Low; // изменить когда появится сохранение и загрузка
 
         if (GameController.instance.settingsManager.VideoDTO.quality != currentVideoQuality)
@@ -44,7 +45,8 @@ public class Panel_VideoQuality : MonoBehaviour, ISettingsObserver
 
             GameController.instance.settingsManager.VideoDTO.quality = currentVideoQuality;
 
-            OnSettingsChanged();
+            settingsController.applaySettingsBttn.gameObject.SetActive(true);
+            //OnSettingsChanged();
         }
     }
 
