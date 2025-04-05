@@ -2,13 +2,16 @@ using UnityEngine;
 using System.Collections;
 public class MouseLook : MonoBehaviour
 {
+    private OnStartSettings onStartSettings;
+
     public float sensitivityHor = 4.0f;
     public float sensitivityVert = 4.0f;
 
-    public float minimumVert = -45.0f;
-    public float maximumVert = 80.0f;
+    public float minimumVert = -80.0f;
+    public float maximumVert = 85.0f;
     private float _rotationX = 0;
-    public enum RotationAxes {
+    public enum RotationAxes
+    {
         MouseXAndY = 0,
         MouseX = 1,
         MouseY = 2
@@ -17,10 +20,17 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        #region это надо проверить
+        onStartSettings = new OnStartSettings();
+        sensitivityVert = onStartSettings.controlSettingsOnStart.mouseSens;
+        #endregion
+
+
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
-        body.freezeRotation = true;
-        sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
+            body.freezeRotation = true;
+
+
     }
 
     void Update()
@@ -36,8 +46,8 @@ public class MouseLook : MonoBehaviour
             float rotationY = transform.localEulerAngles.y;
 
             transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
-        
-    }
+
+        }
         else
         {
             _rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;

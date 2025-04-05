@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+
+
+
     }
 
     void Start()
