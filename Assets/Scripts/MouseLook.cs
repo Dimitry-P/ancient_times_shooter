@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections;
 public class MouseLook : MonoBehaviour
 {
-    public float sensitivityHor = 4.0f;
+    public float sensitivityHor = 3.5f;
     public float sensitivityVert = 4.0f;
 
-    public float minimumVert = -80.0f;
-    public float maximumVert = 85.0f;
+    public float minimumVert = -85.0f;
+    public float maximumVert = 90.0f;
     private float _rotationX = 0;
     public enum RotationAxes
     {
@@ -18,9 +18,15 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        #region это надо проверить
-        sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
-        #endregion
+        if (GameController.instance != null && GameController.instance.settingsManager != null && GameController.instance.settingsManager.ControlDTO != null)
+        {
+            sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
+        }
+        else
+        {
+            Debug.LogWarning("GameController или его компоненты не инициализированы.");
+            sensitivityVert = 3.5f;
+        }
 
 
         Rigidbody body = GetComponent<Rigidbody>();
