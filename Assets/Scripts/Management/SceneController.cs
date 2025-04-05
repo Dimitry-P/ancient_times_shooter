@@ -16,4 +16,10 @@ public class SceneController
     {
         currentScene = Scenes.MainMenu;        
     }
+
+    public void LoadScene()
+    {
+        int indexCurrScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadSceneAsync(Scenes.GameScene.ToString());
+    }
 }

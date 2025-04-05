@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Slider = UnityEngine.UI.Slider;
 
 
-public class Panel_MouseSens : MonoBehaviour, ISettingsManagerObserver
+public class Panel_MouseSens : MonoBehaviour
 {
     [SerializeField] private TMP_Text mouseSensTMP;
     [SerializeField] private Slider mouseSensSlider;
@@ -18,7 +18,7 @@ public class Panel_MouseSens : MonoBehaviour, ISettingsManagerObserver
 
     void Start()
     {
-        mouseSensSlider.value = 0.5f;
+        mouseSensSlider.value = GameController.instance.settingsManager.ControlDTO.mouseSens;
         mouseSensTMP.text = mouseSensSlider.value.ToString();
 
         // Добавляем слушатель для обновления текста при изменении значения слайдера
@@ -32,8 +32,6 @@ public class Panel_MouseSens : MonoBehaviour, ISettingsManagerObserver
         mouseSensTMP.text = roundedValue.ToString("F1"); // Форматируем текст с одним знаком после запятой
 
         
-        GameController.instance.settingsManager.ControlDTO = new ControlDTO();
-        GameController.instance.settingsManager.ControlDTO.mouseSens = 0;
         if (GameController.instance.settingsManager.ControlDTO.mouseSens != roundedValue)
         {
             //settingsController.applaySettingsBttn.Set

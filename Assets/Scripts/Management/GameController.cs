@@ -8,8 +8,8 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public SettingsManager settingsManager;
-
-    private void Awake()
+    public SceneController sceneController;
+    private async void Awake()
     {
         if (instance == null)
         {
@@ -19,8 +19,12 @@ public class GameController : MonoBehaviour
         else
             Destroy(gameObject);
 
+        settingsManager = new SettingsManager();
+        await settingsManager.SetSettings();
 
+        sceneController = new SceneController();
 
+        Debug.Log($"mouseSens {settingsManager.ControlDTO.mouseSens}");
 
     }
 
@@ -40,6 +44,6 @@ public class GameController : MonoBehaviour
         Debug.Log("Полноэкранный режим включен.");
 
         // Загружаем игровую сцену
-        SceneManager.LoadScene("GameScene"); // Замените на имя вашей игровой сцены
+        sceneController.LoadScene();
     }
 }

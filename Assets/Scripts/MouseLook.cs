@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections;
 public class MouseLook : MonoBehaviour
 {
-    private OnStartSettings onStartSettings;
-
     public float sensitivityHor = 4.0f;
     public float sensitivityVert = 4.0f;
 
@@ -21,8 +19,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         #region это надо проверить
-        onStartSettings = new OnStartSettings();
-        sensitivityVert = onStartSettings.controlSettingsOnStart.mouseSens;
+        sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
         #endregion
 
 

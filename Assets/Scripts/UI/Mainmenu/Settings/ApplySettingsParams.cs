@@ -11,8 +11,6 @@ public class ApplySettingsParams : MonoBehaviour
 {
     Button applaySettingsBttn;
 
-    [SerializeField] private SettingsManager settingsManager;
-
     void Start()
     {
         applaySettingsBttn = GetComponent<Button>();
@@ -35,8 +33,9 @@ public class ApplySettingsParams : MonoBehaviour
         SaveDTO saveDTO = new SaveDTO();
         saveDTO.playerDTO = new PlayerDTO();
         saveDTO.settingsDTO = new SettingsDTO();
-        saveDTO.settingsDTO.video = settingsManager.VideoDTO;
-        saveDTO.settingsDTO.control = settingsManager.ControlDTO;
+        saveDTO.settingsDTO.video = GameController.instance.settingsManager.VideoDTO;
+        saveDTO.settingsDTO.control = GameController.instance.settingsManager.ControlDTO;
+        saveDTO.settingsDTO.audio = GameController.instance.settingsManager.AudioDTO;
         Debug.Log($"saveDto {saveDTO.playerDTO.PlayerName}");
 
         // Сериализация в файл
