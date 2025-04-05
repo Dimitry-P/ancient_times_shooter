@@ -3,20 +3,19 @@ using UnityEngine;
 public class LookAt : MonoBehaviour
 {
     public Camera cameraMain;
-    // Start is called before the first frame update
+
+    private Vector3 direction;
     void Start()
     {
-        
+        direction = cameraMain.transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(-direction); // Обратите направление
+        transform.rotation = lookRotation;
     }
-
-    // Update is called once per frame
     void Update()
     {
+        // Если нужно постоянно обновлять направление в каждом кадре
         Vector3 direction = cameraMain.transform.position - transform.position;
-
-        transform.Rotate(direction);
-
-        //transform.LookAt(cameraMain.transform);
-
+        Quaternion lookRotation = Quaternion.LookRotation(-direction); // Обратите направление
+        transform.rotation = lookRotation;
     }
 }

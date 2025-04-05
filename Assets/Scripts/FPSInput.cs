@@ -20,6 +20,9 @@ public class FPSInput : MonoBehaviour
     public float jumpHeight = 2f;
     #endregion
 
+    [SerializeField] private GameObject inventoryPanel;
+    bool inventoryPanel_isActive = false;
+
     void Start()
     {
         if (GameController.instance != null && GameController.instance.settingsManager != null && GameController.instance.settingsManager.ControlDTO != null)
@@ -47,6 +50,12 @@ public class FPSInput : MonoBehaviour
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
         _charController.Move(movement);
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventoryPanel_isActive = !inventoryPanel_isActive;
+            inventoryPanel.SetActive(inventoryPanel_isActive);
+        }
 
     }
 
