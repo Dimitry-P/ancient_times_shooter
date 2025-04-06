@@ -1,13 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
     private float interactableRayDistance = 3.0f;
-    [SerializeField] private GameObject _crossHairPanel;
+    [SerializeField] private GameObject _takingHandIcon;
 
     [SerializeField] private Fireball _fireBall;
+
+
+    [SerializeField] private Inventory _inventory;
+
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -50,18 +55,34 @@ public class RayShooter : MonoBehaviour
                 }
             }
         }
+
+        #region для взаимодействия с интерактивными объектами
         if (Physics.Raycast(ray, out hit, interactableRayDistance))
         {
             IInteractable interactable = hit.transform.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                _crossHairPanel.SetActive(true);
+                _takingHandIcon.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (hit.collider.GetComponent<Pickable>())
+                    {
+                        var pickable = hit.collider.GetComponent<Pickable>();
+                        pickable.PickableName = pickable.transform.name;
+                        _inventory.AddItem(pickable);
+                        pickable.DestroyWhenInteracted();
+                    }
+
+
+                    interactable.Interraction();                    
+                }
             }
         }
-        else 
+        else
         {
-            _crossHairPanel.SetActive(false);
+            _takingHandIcon.SetActive(false);
         }
+        #endregion
     }
     private IEnumerator SphereIndicator(Vector3 pos)
     {
