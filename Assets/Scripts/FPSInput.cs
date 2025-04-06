@@ -55,6 +55,7 @@ public class FPSInput : MonoBehaviour
         {
             inventoryPanel_isActive = !inventoryPanel_isActive;
             inventoryPanel.SetActive(inventoryPanel_isActive);
+
         }
 
     }

@@ -14,7 +14,22 @@ public class Interactable : MonoBehaviour, IInteractable
         { 
             //Debug.Log($"layer name {thisTransformLayerName}");
             var chestInventory = GetComponent<ChestInventory>();
-            chestInventory.GetRandomChestInventory();
+            if (chestInventory != null)
+            {
+                //chestInventory.GetRandomChestInventory();
+            }
+        }
+
+        if (thisTransformLayerName == "Pickable")
+        {
+            //Debug.Log($"layer name {thisTransformLayerName}");
+            Pickable pickableObj = GetComponent<Pickable>();
+            if (pickableObj != null)
+            {
+                ////Debug.Log($"obj name {pickableObj.name}");
+                //pickableObj.DestroyWhenInteracted();
+                
+            }
         }
     }
 }
