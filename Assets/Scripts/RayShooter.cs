@@ -77,6 +77,10 @@ public class RayShooter : MonoBehaviour
                     interactable.Interraction();                    
                 }
             }
+            else
+            {
+                _takingHandIcon.SetActive(false);
+            }
         }
         else
         {
