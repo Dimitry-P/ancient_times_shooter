@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    public void ShowHandIcon();
+    public void Interraction();
 }

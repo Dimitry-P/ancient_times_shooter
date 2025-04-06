@@ -5,7 +5,7 @@ public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
     private float interactableRayDistance = 3.0f;
-    [SerializeField] private GameObject _crossHairPanel;
+    [SerializeField] private GameObject _takingHandIcon;
 
     [SerializeField] private Fireball _fireBall;
     void Start()
@@ -55,12 +55,16 @@ public class RayShooter : MonoBehaviour
             IInteractable interactable = hit.transform.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                _crossHairPanel.SetActive(true);
+                _takingHandIcon.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactable.Interraction();
+                }
             }
         }
-        else 
+        else
         {
-            _crossHairPanel.SetActive(false);
+            _takingHandIcon.SetActive(false);
         }
     }
     private IEnumerator SphereIndicator(Vector3 pos)
