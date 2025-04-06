@@ -8,6 +8,7 @@ public class PickableSO : ScriptableObject
     {
         Weapone,
         Posion,
+        Chests,
         Food
     }
     public ItemType itemType;
