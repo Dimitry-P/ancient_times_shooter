@@ -23,12 +23,30 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private GameObject inventoryPanel;
     private bool inventoryPanel_isActive = false;
 
+    [Header("Crouch Settings")]
+    public float crouchHeight = 1.0f;
+    public float standingHeight = 2.0f;
+    public float crouchSpeed = 3.0f;
+    private bool isCrouching = false;
+    private float originalSpeed;
+
     private Vector3 velocity;
     private bool isGrounded;
 
+    private float crouchTransitionSpeed = 6f; // скорость приседания / вставания
+    private float targetHeight;
+    private Vector3 targetCenter;
+
+
+
     void Start()
     {
+        originalSpeed = speed;
         _charController = GetComponent<CharacterController>();
+        standingHeight = _charController.height;
+
+        targetHeight = standingHeight;
+        targetCenter = new Vector3(0, standingHeight / 2f, 0);
 
         if (GameController.instance != null && GameController.instance.settingsManager != null && GameController.instance.settingsManager.ControlDTO != null)
         {
@@ -72,6 +90,29 @@ public class FPSInput : MonoBehaviour
         {
             inventoryPanel_isActive = !inventoryPanel_isActive;
             inventoryPanel.SetActive(inventoryPanel_isActive);
+        }
+
+        // Приседание
+        // Перепроверим изменения высоты
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (!isCrouching)
+            {
+                isCrouching = true;
+                _charController.height = crouchHeight; // Например, 1.0f
+                _charController.center = new Vector3(0, crouchHeight / 2f, 0);
+                //speed = crouchSpeed;
+            }
+        }
+        else
+        {
+            if (isCrouching)
+            {
+                isCrouching = false;
+                _charController.height += standingHeight; // Например, 2.0f
+                _charController.center += new Vector3(0, standingHeight - 2f, 0);
+                //speed = originalSpeed;
+            }
         }
     }
 }
