@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: fbaf731b555206745bc856e6b3dbc606
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 859
+        width: 134
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5332046f80672a4a96430dbcb78a8eb
+      internalID: -1193889662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 875
+        width: 187
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72625a6db5c00e5459a291ed5422960f
+      internalID: -156130956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 878
+        width: 134
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0990e510de8f4e44abafa08d686aceb7
+      internalID: 650706241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 866
+        width: 119
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b6f9ecadf414c4bb9bca14699a7e85
+      internalID: -1855514307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 599
+        width: 177
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4010abfbe46f708478d436ddcac9655f
+      internalID: -1580330211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 584
+        width: 107
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa798c863c0dcf4b92f8761713cf94b
+      internalID: 825569484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 591
+        width: 118
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b0a89b1ecc4764aaaba397319f7991
+      internalID: 559904346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 593
+        width: 98
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442111fa41d5cc344af0afe7db346fab
+      internalID: 636627401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 306
+        width: 96
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b094592891fb3c488efec07f0b64b6c
+      internalID: 1197462075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 315
+        width: 162
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1a5f6d0e5211b4289f2d38ba4c3963
+      internalID: 1961082932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 311
+        width: 165
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0418782f0a719e642a49b5d5158e1420
+      internalID: -1100796277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 302
+        width: 140
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1135db674a677f149ad9fa8a2dfc7ca1
+      internalID: 1716188878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 15
+        width: 144
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e167ed149df5ca340a54d33ebe6745cf
+      internalID: -930173636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 7
+        width: 148
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7078717826aa984ea3b6eda2537535c
+      internalID: -292681709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 20
+        width: 129
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de2b087e051d1345aa47f5b34b578a9
+      internalID: -1093375939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 37
+        width: 162
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68df1f4ebbbe7b4ca68a313d9ec16d1
+      internalID: 2074281164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d3a8ff3475ee24e47a827c383d121724
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_0: -1193889662
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_1: -156130956
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_10: -1100796277
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_11: 1716188878
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_12: -930173636
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_13: -292681709
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_14: -1093375939
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_15: 2074281164
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_2: 650706241
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_3: -1855514307
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_4: -1580330211
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_5: 825569484
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_6: 559904346
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_7: 636627401
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_8: 1197462075
+      Flux_Dev_Sixteen_realistic_lightning_sprites_for_a_Unity_parti_3-Photoroom_9: 1961082932
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
