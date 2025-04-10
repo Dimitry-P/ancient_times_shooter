@@ -1186,6 +1186,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   inventoryPanel: {fileID: 171542879}
+  crouchHeight: 1
+  standingHeight: 2
+  crouchSpeed: 3
 --- !u!114 &484068179
 MonoBehaviour:
   m_ObjectHideFlags: 0
