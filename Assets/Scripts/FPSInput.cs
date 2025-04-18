@@ -52,6 +52,7 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private Animator _animator;
     private string _slowRunningAnimName = "SlowRunning";
     private string _idleAnimName = "StandingIdle";
+    private string _crouchAnimName = "CrouchedWalking";
     #endregion
 
 
@@ -139,9 +140,13 @@ public class FPSInput : MonoBehaviour
         {
             _animator.Play(_slowRunningAnimName);
         }
-        if (moveDirection == Vector3.zero)
+        if (moveDirection == Vector3.zero && !isCrouching)
         {
             _animator.Play(_idleAnimName);
+        }
+        if (isGrounded && isCrouching) 
+        {
+            _animator.Play(_crouchAnimName);
         }
     }
 
