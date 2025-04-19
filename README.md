@@ -61,8 +61,8 @@ public class AutoBounceWithRigidbody : MonoBehaviour
     В методе Update() проверяем, находится ли объект на земле. Если да, то вызываем метод Jump(), который устанавливает вертикальную скорость для прыжка.
     Используем OnCollisionEnter для определения, когда объект приземляется.
 
-##Вариант 2: Отскок с использованием CharacterController
-###Пример кода
+## Вариант 2: Отскок с использованием CharacterController
+### Пример кода
 ```csharp
 
 using UnityEngine;
