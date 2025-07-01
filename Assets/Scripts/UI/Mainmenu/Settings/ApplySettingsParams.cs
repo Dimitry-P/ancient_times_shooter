@@ -42,7 +42,13 @@ public class ApplySettingsParams : MonoBehaviour
         string json = JsonUtility.ToJson(saveDTO); // true для форматирования
         Debug.Log(json);
 
-        string filePath = Application.persistentDataPath + "\\Saves\\Save.json";
+        string directoryPath = Application.persistentDataPath + "\\Saves";
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
+        string filePath = directoryPath + "\\Save.json";
+
         using (FileStream fs = new FileStream(filePath, FileMode.Create))
         {
             byte[] buffer = Encoding.UTF8.GetBytes(json);
