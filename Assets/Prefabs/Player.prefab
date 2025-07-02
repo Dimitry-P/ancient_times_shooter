@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 8303191059754133426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.50000024, z: 0}
+  m_LocalPosition: {x: 0, y: 1.911, z: 0.138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 9112799962339458651}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,12 +304,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414ddfbe49b423344be0dedf155bf0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  _playerEyes: {fileID: 8463544879555985810}
+  slowRunSpeed: 3.5
   gravity: -9.81
   jumpHeight: 2
   sensitivityHor: 3.5
   groundCheck: {fileID: 5970887037354785606}
-  groundDistance: 0.3
+  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 512
@@ -318,6 +319,7 @@ MonoBehaviour:
   speed_fromCrouchToStand: 3
   standingHeight: 2
   crouchingHeight: 1
+  _animator: {fileID: 7496505239810360900}
 --- !u!1001 &4135001985713765333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,6 +388,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreyar By M.Aure@T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 87dc19d62efec49429bf104a48f006b8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dcb700cecc36f1844b59af1a4df33160, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 87dc19d62efec49429bf104a48f006b8, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Male Sitting
+        Pose'"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -394,5 +411,10 @@ PrefabInstance:
 --- !u!4 &4533087535592479806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87dc19d62efec49429bf104a48f006b8, type: 3}
+  m_PrefabInstance: {fileID: 4135001985713765333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7496505239810360900 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 87dc19d62efec49429bf104a48f006b8, type: 3}
   m_PrefabInstance: {fileID: 4135001985713765333}
   m_PrefabAsset: {fileID: 0}
