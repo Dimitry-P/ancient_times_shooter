@@ -17,6 +17,7 @@ public class SettingsController : MonoBehaviour
 
     void Start()
     {
+        
         scrollViewsInSettings = new List<ScrollRect>();
         foreach (Transform item in transform)
         {

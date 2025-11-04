@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 
 public class WanderingAI : MonoBehaviour
@@ -30,9 +29,8 @@ public class WanderingAI : MonoBehaviour
                 {
                     if (_fireball == null)
                     {
-                        _fireball = Instantiate(fireballPrefab) as GameObject;
-                        _fireball.transform.position =
-                        transform.TransformPoint(Vector3.forward * 1.5f);
+                        _fireball = Instantiate(fireballPrefab);
+                        _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
                         _fireball.transform.rotation = transform.rotation;
                     }
                 }

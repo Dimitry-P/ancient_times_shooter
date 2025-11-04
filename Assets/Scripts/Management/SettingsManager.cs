@@ -54,7 +54,11 @@ public class SettingsManager
             SaveDTO saveDTOFromLoad = JsonUtility.FromJson<SaveDTO>(jsonFromSave);
 
             ControlDTO = saveDTOFromLoad.settingsDTO.control;
+
             VideoDTO = saveDTOFromLoad.settingsDTO.video;
+
+            Screen.SetResolution(VideoDTO.widthScreen, VideoDTO.heightScreen, true);
+
             AudioDTO = saveDTOFromLoad.settingsDTO.audio;
         }
     }

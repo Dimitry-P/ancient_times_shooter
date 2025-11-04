@@ -18,7 +18,7 @@ public class Panel_MouseSens : MonoBehaviour
 
     void Start()
     {
-        mouseSensSlider.value = GameController.instance.settingsManager.ControlDTO.mouseSens;
+        mouseSensSlider.value = GameSettigsController.instance.settingsManager.ControlDTO.mouseSens;
         mouseSensTMP.text = mouseSensSlider.value.ToString();
 
         // Добавляем слушатель для обновления текста при изменении значения слайдера
@@ -32,10 +32,10 @@ public class Panel_MouseSens : MonoBehaviour
         mouseSensTMP.text = roundedValue.ToString("F1"); // Форматируем текст с одним знаком после запятой
 
         
-        if (GameController.instance.settingsManager.ControlDTO.mouseSens != roundedValue)
+        if (GameSettigsController.instance.settingsManager.ControlDTO.mouseSens != roundedValue)
         {
             //settingsController.applaySettingsBttn.Set
-            GameController.instance.settingsManager.ControlDTO.mouseSens = roundedValue;
+            GameSettigsController.instance.settingsManager.ControlDTO.mouseSens = roundedValue;
 
             OnSettingsChanged();
         }

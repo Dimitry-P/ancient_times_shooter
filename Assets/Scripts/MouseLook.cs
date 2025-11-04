@@ -18,9 +18,9 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        if (GameController.instance != null && GameController.instance.settingsManager != null && GameController.instance.settingsManager.ControlDTO != null)
+        if (GameSettigsController.instance != null && GameSettigsController.instance.settingsManager != null && GameSettigsController.instance.settingsManager.ControlDTO != null)
         {
-            sensitivityVert = GameController.instance.settingsManager.ControlDTO.mouseSens;
+            sensitivityVert = GameSettigsController.instance.settingsManager.ControlDTO.mouseSens;
         }
         else
         {

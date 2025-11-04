@@ -1,6 +1,4 @@
 using UnityEngine;
-using System;
-using System.IO;
 
 public class SceneControllerForEnemy : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class SceneControllerForEnemy : MonoBehaviour
 
     void Start()
     {
-        Screen.fullScreen = true; // Включаем полноэкранный режим
+        
     }
 
 
@@ -25,10 +23,3 @@ public class SceneControllerForEnemy : MonoBehaviour
     }
 }
 
-// Класс настроек
-[System.Serializable]
-public class GameSettings
-{
-    public float volume;
-    public bool fullscreen;
-}

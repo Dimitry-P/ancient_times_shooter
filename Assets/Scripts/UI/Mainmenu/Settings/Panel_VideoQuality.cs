@@ -8,39 +8,53 @@ public class Panel_VideoQuality : MonoBehaviour
     [SerializeField] private Button higherBttn;
     [SerializeField] private TMP_Text textQuality;
 
-    private VideoQuality[] videoQualities = { VideoQuality.Low, VideoQuality.Medium, VideoQuality.High };
-    private sbyte videoQualitiesIndex = 0;
-    [HideInInspector] public VideoQuality currentVideoQuality;
+    private string[] videoQualities = { };
+    private sbyte videoQualityIndex = 0;
+    [HideInInspector] public string currentVideoQuality;
 
     [SerializeField] private SettingsController settingsController;
 
 
+    private void Awake()
+    {
+        videoQualities = QualitySettings.names;
+    }
+
     void Start()
     {
-        textQuality.text = VideoQuality.Low.ToString();
+        textQuality.text = GameSettigsController.instance.settingsManager.VideoDTO.quality;
+
+        for (int i = 0; i < videoQualities.Length; i++)
+        {
+            if (QualitySettings.names[i] == videoQualities[i])
+            {
+                QualitySettings.SetQualityLevel(i);
+            }
+        }
+        
         lowerBttn.onClick.AddListener(()=>ChangeVideoQuality(-1));
         higherBttn.onClick.AddListener(()=>ChangeVideoQuality(1));
     }
     void ChangeVideoQuality(sbyte d)
     {
-        videoQualitiesIndex += d;
+        videoQualityIndex += d;
 
-        if (videoQualitiesIndex < 0)
+        if (videoQualityIndex < 0)
         {
-            videoQualitiesIndex = 0;
+            videoQualityIndex = 0;
         }
-        else if (videoQualitiesIndex >= videoQualities.Length)
+        else if (videoQualityIndex >= videoQualities.Length)
         {
-            videoQualitiesIndex = (sbyte)(videoQualities.Length - 1);
+            videoQualityIndex = (sbyte)(videoQualities.Length - 1);
         }
 
-        textQuality.text = videoQualities[videoQualitiesIndex].ToString();
-        currentVideoQuality = videoQualities[videoQualitiesIndex];
+        textQuality.text = videoQualities[videoQualityIndex].ToString();
+        currentVideoQuality = videoQualities[videoQualityIndex];
 
-        if (GameController.instance.settingsManager.VideoDTO.quality != currentVideoQuality)
+        if (GameSettigsController.instance.settingsManager.VideoDTO.quality != currentVideoQuality)
         {
 
-            GameController.instance.settingsManager.VideoDTO.quality = currentVideoQuality;
+            GameSettigsController.instance.settingsManager.VideoDTO.quality = currentVideoQuality;
 
             settingsController.applaySettingsBttn.gameObject.SetActive(true);
         }

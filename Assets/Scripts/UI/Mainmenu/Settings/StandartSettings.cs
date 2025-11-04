@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+
+
 
 public class StandartSettings
 {
@@ -19,6 +22,6 @@ public class StandartSettings
 
         videoSettingsOnStart.widthScreen = Screen.width;
         videoSettingsOnStart.heightScreen = Screen.height;
-        videoSettingsOnStart.quality = VideoQuality.Medium;
+        videoSettingsOnStart.quality = QualitySettings.names[0];
     }
 }

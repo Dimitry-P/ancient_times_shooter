@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 167db4b6e6ab37e4d8d29d796f5bbc21
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/GameScene_Tropic.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/GameScene_Sands.unity
+    guid: c366942d37ce12b46b3b346eb68053b0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 public class Fireball : MonoBehaviour
 {
     public float speed = 30.0f;
@@ -15,7 +14,7 @@ public class Fireball : MonoBehaviour
             rb.linearVelocity = transform.forward * speed; // ƒвигаем вперЄд
             //Debug.Log("Fireball velocity: " + rb.linearVelocity);
         }
-        Destroy(gameObject,2.0f);
+        Destroy(gameObject,5.0f);
     }
 
     void OnTriggerEnter(Collider other)

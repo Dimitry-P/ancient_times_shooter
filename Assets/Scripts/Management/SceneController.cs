@@ -1,12 +1,10 @@
-using NUnit.Framework;
-using System.Runtime.CompilerServices;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Scenes
 {
-    GameScene,
-    MainMenu
+    MainMenu,
+    GameScene_Tropic,
+    GameScene_Sands
 }
 
 public class SceneController
@@ -20,6 +18,6 @@ public class SceneController
     public void LoadScene()
     {
         int indexCurrScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadSceneAsync(Scenes.GameScene.ToString());
+        SceneManager.LoadSceneAsync(Scenes.GameScene_Tropic.ToString());
     }
 }

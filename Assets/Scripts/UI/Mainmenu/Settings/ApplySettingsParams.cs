@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,9 +34,19 @@ public class ApplySettingsParams : MonoBehaviour
         SaveDTO saveDTO = new SaveDTO();
         saveDTO.playerDTO = new PlayerDTO();
         saveDTO.settingsDTO = new SettingsDTO();
-        saveDTO.settingsDTO.video = GameController.instance.settingsManager.VideoDTO;
-        saveDTO.settingsDTO.control = GameController.instance.settingsManager.ControlDTO;
-        saveDTO.settingsDTO.audio = GameController.instance.settingsManager.AudioDTO;
+        saveDTO.settingsDTO.video = GameSettigsController.instance.settingsManager.VideoDTO;
+        saveDTO.settingsDTO.control = GameSettigsController.instance.settingsManager.ControlDTO;
+        saveDTO.settingsDTO.audio = GameSettigsController.instance.settingsManager.AudioDTO;
+
+        for (int i = 0; i < QualitySettings.names.Length; i++)
+        {
+            if (QualitySettings.names[i] == GameSettigsController.instance.settingsManager.VideoDTO.quality)
+            {
+                QualitySettings.SetQualityLevel(i);
+            }
+        }
+        Screen.SetResolution(GameSettigsController.instance.settingsManager.VideoDTO.widthScreen, GameSettigsController.instance.settingsManager.VideoDTO.heightScreen, true);
+
         Debug.Log($"saveDto {saveDTO.playerDTO.PlayerName}");
 
         // Сериализация в файл

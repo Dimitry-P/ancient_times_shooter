@@ -66,9 +66,9 @@ public class FPSInput : MonoBehaviour
 
         //_playerEyes.transform.position = new Vector3(standingCenter.x, standingCenter.y + 0.911f, standingCenter.z);
 
-        if (GameController.instance != null && GameController.instance.settingsManager != null && GameController.instance.settingsManager.ControlDTO != null)
+        if (GameSettigsController.instance != null && GameSettigsController.instance.settingsManager != null && GameSettigsController.instance.settingsManager.ControlDTO != null)
         {
-            sensitivityHor = GameController.instance.settingsManager.ControlDTO.mouseSens;
+            sensitivityHor = GameSettigsController.instance.settingsManager.ControlDTO.mouseSens;
         }
 
         originalVelocityX = velocity.x;
