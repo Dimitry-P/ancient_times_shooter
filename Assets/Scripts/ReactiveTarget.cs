@@ -15,9 +15,11 @@ public class ReactiveTarget : MonoBehaviour
     {
         this.transform.Rotate(-75, 0, 0);
 
-        Scenario.instance.EnemyKilled();
+
 
         yield return new WaitForSeconds(1.5f);
+
+        Scenario.instance.EnemyKilled();
         Destroy(this.gameObject);
     }
 }

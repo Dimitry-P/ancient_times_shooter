@@ -9,13 +9,15 @@ public class Goals : SingletonBase<Goals>
 
     public UnityEvent OnChangeTropicGoal;
     public UnityEvent OnChangeSandsGoal;
+
+    string tmp;
     void Start()
     {
         _tropicGoal.text = $"-Scene1-destroy 3 enemies: Destroyed: {Scenario.instance.InemiesKilled}/{3}";
         _sandsGoal.text = $"-Scene2-walk {Scenario.instance.TargetDistance} meters: passed {Scenario.instance.DistanceTraveled}ì";
 
         OnChangeTropicGoal.AddListener(TropicGoalChange);
-        OnChangeTropicGoal.AddListener(SandsGoalChange);
+        OnChangeSandsGoal.AddListener(SandsGoalChange);
     }
 
     private void OnDestroy()
@@ -29,6 +31,7 @@ public class Goals : SingletonBase<Goals>
     }
     private void SandsGoalChange()
     {
-        _sandsGoal.text = $"-Scene2-walk {Scenario.instance.TargetDistance} meters: passed {Scenario.instance.DistanceTraveled}ì";
+        tmp = Scenario.instance.DistanceTraveled.ToString("F1");
+        _sandsGoal.text = $"-Scene2-walk {Scenario.instance.TargetDistance} meters: passed {tmp}ì";
     }
 }

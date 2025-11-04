@@ -4,7 +4,8 @@ public enum Scenes
 {
     MainMenu,
     GameScene_Tropic,
-    GameScene_Sands
+    GameScene_Sands,
+    Final_Subtiles
 }
 
 public class SceneController

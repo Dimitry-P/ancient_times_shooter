@@ -8,7 +8,7 @@ public class Scenario : SingletonBase<Scenario>
     // Цели для GameScene_Tropic
     private int enemiesKilled = 0;
     public int InemiesKilled => enemiesKilled;
-    public int totalEnemiesInScene1 = 2;
+    public int totalEnemiesInScene1 = 3;
 
     // Цели для GameScene_Sands
     private float distanceTraveled = 0f;
@@ -16,7 +16,10 @@ public class Scenario : SingletonBase<Scenario>
 
     public float TargetDistance { get => targetDistance; }
 
-    private float targetDistance = 10f;
+    private float targetDistance = 30f;
+
+    private bool isCompleteGoalSceneTropic = false;
+    private bool isCompleteSandsSceneTropic = false;
 
     private void OnEnable()
     {
@@ -49,11 +52,13 @@ public class Scenario : SingletonBase<Scenario>
         if (currentGoal == Scenes.GameScene_Tropic)
         {
             enemiesKilled++;
-            Debug.Log($"Уничтожено противников: {enemiesKilled}/{totalEnemiesInScene1}");
+            //Debug.Log($"Уничтожено противников: {enemiesKilled}/{totalEnemiesInScene1}");
             Goals.instance.OnChangeTropicGoal.Invoke();
             if (enemiesKilled >= totalEnemiesInScene1)
             {
-                Debug.Log("Цель выполнена: уничтожить всех противников");
+                isCompleteGoalSceneTropic = true;
+                CheckGoalsAndLoadScene();
+                //Debug.Log("Цель выполнена: уничтожить всех противников");
             }
 
         }
@@ -64,12 +69,22 @@ public class Scenario : SingletonBase<Scenario>
         if (currentGoal == Scenes.GameScene_Sands)
         {
             distanceTraveled += distance;
-            Debug.Log($"Пройдено: {distanceTraveled}/{targetDistance} метров");
             Goals.instance.OnChangeSandsGoal.Invoke();
             if (distanceTraveled >= targetDistance)
             {
-                Debug.Log("Цель выполнена: пройти 10 метров");
+                isCompleteSandsSceneTropic = true;
+                CheckGoalsAndLoadScene();
+                //Debug.Log("Цель выполнена: пройти 30 метров");
             }
+        }
+    }
+
+    //Проверка выполнения обеих целей
+    private void CheckGoalsAndLoadScene()
+    {
+        if (enemiesKilled >= totalEnemiesInScene1 && distanceTraveled >= targetDistance)
+        {
+            SceneManager.LoadScene("Final_Subtiles");
         }
     }
 }
