@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameSettigsController : MonoBehaviour
@@ -31,9 +32,12 @@ public class GameSettigsController : MonoBehaviour
 
     void Start()
     {
+        DestroyAllDontDestroyOnLoadObjects();
         startButton.onClick.AddListener(OnStartButtonClicked);
    
         Screen.fullScreen = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     
     void OnStartButtonClicked()
@@ -42,5 +46,25 @@ public class GameSettigsController : MonoBehaviour
         sceneController.LoadScene();
     }
 
+    public void DestroyAllDontDestroyOnLoadObjects()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            // Имя внутренней сцены для объектов DontDestroyOnLoad
+            if (scene.name == Scenes.MainMenu.ToString())
+            {
+                GameObject[] roots = scene.GetRootGameObjects();
+                foreach (GameObject root in roots)
+                {
 
+                    if (root.name == "Goals_Canvas")
+                    {
+                        Destroy(root);
+                    }
+                    
+                }
+            }
+        }
+    }
 }

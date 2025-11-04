@@ -16,8 +16,8 @@ public class OpenGameMenu : MonoBehaviour
     void Start()
     {
         _gameMenuPanel.gameObject.SetActive(false);
-        Debug.Log($"_isMainMenuOpened {_isMainMenuOpened}");
-        Debug.Log($"_isPaused {_isPaused}");
+        //Debug.Log($"_isMainMenuOpened {_isMainMenuOpened}");
+        //Debug.Log($"_isPaused {_isPaused}");
     }
 
     // Update is called once per frame
@@ -47,8 +47,8 @@ public class OpenGameMenu : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-            Debug.Log("esc");
-            Debug.Log($"_isPaused {_isPaused}");
+            //Debug.Log("esc");
+            //Debug.Log($"_isPaused {_isPaused}");
         }
     }
 }
