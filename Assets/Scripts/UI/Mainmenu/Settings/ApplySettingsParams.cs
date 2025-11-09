@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// скрипт для кнопки Apply в Settings
+/// скрипт для кнопки Apply в Settings. Будет отвечать за сохранение как настроек так и файла сохранения
 /// </summary>
 public class ApplySettingsParams : MonoBehaviour
 {

@@ -7,7 +7,7 @@ public class PickableSO : ScriptableObject
     public enum ItemType
     {
         Weapone,
-        Posion,
+        Potion,
         Chests,
         Food
     }

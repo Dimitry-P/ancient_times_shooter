@@ -3,60 +3,56 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Button = UnityEngine.UI.Button;
 
 public class SettingsController : MonoBehaviour
 {
     [SerializeField] public Button applaySettingsBttn;
     [SerializeField] private GameObject Panel_SettingsHeader;
     
-    List<UnityEngine.UI.ScrollRect> scrollViewsInSettings;
+    [SerializeField] List<ScrollRect> scrollViewsInSettings;
     List<Button> bttnsInSettingsHeaderPanel;
-
-    [SerializeField] private SettingsManager settingsManager;
 
     void Start()
     {
-        
-        scrollViewsInSettings = new List<ScrollRect>();
-        foreach (Transform item in transform)
-        {
-            ScrollRect scrollView = item.GetComponent<ScrollRect>();
-            if (item.name.StartsWith("Settings_ScrollView"))
-            {
-                scrollViewsInSettings.Add(scrollView);
-            }
-        }
 
         bttnsInSettingsHeaderPanel = new List<Button>();
+
+        int index = 0; // для связывания с scrollViewsInSettings
         foreach (Transform item in Panel_SettingsHeader.transform)
         {
-            Button buttonInSettings = item.GetComponent<Button>();
-            if (buttonInSettings != null)
+            Button bttnInSettingsHeaderPanel = item.GetComponent<Button>();
+            if (bttnInSettingsHeaderPanel != null)
             {
-                string buttonText = buttonInSettings.GetComponentInChildren<TMP_Text>().text;
-                buttonInSettings.onClick.AddListener(() => ChangeSettingsCategory(buttonText));
-                bttnsInSettingsHeaderPanel.Add(buttonInSettings);
+                bttnInSettingsHeaderPanel.onClick.AddListener(() => ChangeSettingsCategory(bttnInSettingsHeaderPanel));
+                bttnsInSettingsHeaderPanel.Add(bttnInSettingsHeaderPanel);
+
+                // Получаем компонент WindowExpander и связываем со ScrollRect
+                WindowExpander windowExpander = bttnInSettingsHeaderPanel.GetComponent<WindowExpander>();
+                if (windowExpander != null && index < scrollViewsInSettings.Count)
+                {
+                    windowExpander.associatedScrollView = scrollViewsInSettings[index];
+                }
+
+                index++;
             }
         }
 
         applaySettingsBttn.gameObject.SetActive(false);
-        //applaySettingsBttn.onClick.AddListener(OnApplyButtonClicked);
     }
 
-    private void ChangeSettingsCategory(string buttonText)
+    private void ChangeSettingsCategory(Button clickedButton)
     {
-        foreach (ScrollRect scrollView in scrollViewsInSettings)
+        // Перед тем как открывать, закрываем все ScrollViews
+        foreach (var scrollView in scrollViewsInSettings)
         {
-            if (scrollView.name.Contains(buttonText))
-            {
-                scrollView.gameObject.SetActive(true);
-            }
-            else
-            {
-                scrollView.gameObject.SetActive(false);
-            }
+            scrollView.gameObject.SetActive(false);
+        }
+
+        // Открываем только связанный ScrollView
+        WindowExpander windowExpander = clickedButton.GetComponent<WindowExpander>();
+        if (windowExpander != null)
+        {
+            windowExpander.OpenObject();
         }
     }
-
 }
